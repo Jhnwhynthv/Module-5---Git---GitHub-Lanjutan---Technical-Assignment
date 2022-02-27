@@ -1,0 +1,61 @@
+1.  What does git clean do?
+=>  Membersihkan pohon kerja dengan menghapus file yang tidak berada di bawah kontrol versi secara rekursif, 
+    mulai dari direktori saat ini.
+
+2.  What do the -d and -f flags for git clean do?
+=>  -d = Biasanya, ketika tidak ada <path> yang ditentukan, git clean tidak akan muncul kembali ke direktori 
+         yang tidak terlacak untuk menghindari penghapusan terlalu banyak. Tentukan -d untuk membuatnya berulang 
+         ke direktori seperti itu juga. Jika ada jalur yang ditentukan, -d tidak relevan; semua file yang tidak 
+         terlacak yang cocok dengan jalur yang ditentukan (dengan pengecualian untuk direktori git bersarang yang 
+         disebutkan di bawah --force) akan dihapus.
+
+    -f = Jika variabel konfigurasi Git clean.requireForce tidak disetel ke false, git clean akan menolak untuk 
+         menghapus file atau direktori kecuali diberikan -f atau -i. Git akan menolak untuk memodifikasi repositori 
+         git bersarang yang tidak terlacak (direktori dengan subdirektori .git) kecuali -f kedua diberikan.
+
+3.  What git command creates a branch?
+=>  Perintah untuk membuat cabang adalah git branch, kemudian diikuti dengan nama cabangnya. misalnya,
+    git branch test
+    Maka Git akan membuat cabang bernama test.
+
+4.  What is the difference between a fast-forward and recursive merge?
+=>  - a fast-forward merupakan gabungan dari satu commit ke commit yang ingin dicapai dengan mengikuti riwayat 
+      commit pertama, lalu git akan menyederhanakan berbagai hal dengan menggerakan pointer ke depan karena
+      tidak ada pekerjaan yang berbeda untuk digabungkan.
+
+    - recursive merge merupakan strategi penggabungan default saat menarik atau menggabungkan satu cabang. 
+      Selain itu, ini dapat mendeteksi dan menangani penggabungan yang melibatkan penggantian nama, tetapi 
+      saat ini tidak dapat menggunakan salinan yang terdeteksi. Ini adalah strategi penggabungan default saat 
+      menarik atau menggabungkan satu cabang. 
+
+5.  What git command changes to another branch?
+=>  menggunakan switch branch misal Cara termudah untuk mengganti cabang di Git adalah dengan menggunakan perintah "git checkout" dan tentukan nama 
+    cabang yang ingin di alihkan. Jika cabang tujuan tidak ada, kita harus menambahkan opsi "-b", jika tidak, kita 
+    tidak akan dapat beralih ke cabang itu.
+
+6.  How do you remove modified or deleted files from the working directory?
+=>  git rm atau Perintah "rm" membantu untuk menghapus file dari repositori Git. Ini memungkinkan kita untuk tidak 
+    hanya menghapus file dari repositori, tetapi juga jika kita mau dari fileSystem. Menghapus file dari sistem 
+    file tentu saja dapat dengan mudah dilakukan di banyak aplikasi lain, mis. editor teks, IDE atau browser file. 
+    Tetapi menghapus file dari repositori Git yang sebenarnya adalah tugas terpisah, yang untuk itu git rm dibuat.
+
+7.  What git command deletes a branch?
+=>  Cara menghapus cabang, gunakan perintah git branch dengan argumen -d dan diikuti dengan nama cabangnya. misalnya,
+    git branch -d test
+
+8.  What does the git diff command do?
+=>  git diff, fungsinya untuk melihat perbedaan perubahan di revisi.
+
+9.  How do you remove files from the staging area?
+=>  git reset HEAD hanya mengeluarkan file dari staged area, perubahan-perubahan yang dilakukan tetap tersimpan pada working directory.
+    git checkout HEAD juga dapat digunakan untuk mengeluarkan file dari staged area. Bedanya, git checkout HEAD juga membuang semua perubahan-perubahan 
+    yang telah dibuat. jadi harus berhati-hati dalam menjalankan perintah ini.
+
+10. How do merge conflicts happen?
+=>  merge conflicts merupakan  bagian umum dari pengalaman Git. Konflik di alat kontrol versi lain seperti SVN bisa memakan biaya dan waktu. 
+    Git membuat penggabungan menjadi sangat mudah. Sebagian besar waktu, Git akan mencari cara untuk mengintegrasikan perubahan baru secara otomatis.
+    Konflik umumnya muncul ketika dua orang telah mengubah baris yang sama dalam file, atau jika satu pengembang menghapus file sementara pengembang 
+    lain memodifikasinya. Dalam kasus ini, Git tidak dapat secara otomatis menentukan apa yang benar. Konflik hanya memengaruhi pengembang yang melakukan 
+    penggabungan, anggota tim lainnya tidak mengetahui konflik tersebut. Git akan menandai file sebagai konflik dan menghentikan proses penggabungan. 
+    Maka tanggung jawab pengembang untuk menyelesaikan konflik.
+
